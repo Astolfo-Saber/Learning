@@ -15,5 +15,17 @@ public class AreSimilar {
         Arrays.sort(b);
         return result <= 2 && Arrays.equals(a, b);
     }
-
+    public boolean improveSolution(int[] a, int[] b){
+        int result = 0;
+        int multiplierOne = 1;
+        int multiplierTwo = 1;
+        for (int i = 0; i < a.length; i++){
+            if (a[i] != b[i]) {
+                result++;
+                multiplierOne *= a[i];
+                multiplierTwo *= b[i];
+            }
+        }
+        return result < 3 && multiplierOne == multiplierTwo;
+    }
 }
